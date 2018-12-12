@@ -15,12 +15,10 @@ MonoBehaviour:
   - _default
   - platformer
   - buggy
-  - myactions
   actionSetObjects:
   - {fileID: 11400000, guid: e77c73bbeac9e6640b28d74dca0e4b23, type: 2}
   - {fileID: 11400000, guid: d51ef7b5a67b7b049bc4f9653aca7c9b, type: 2}
   - {fileID: 11400000, guid: 9b8c242231471cf46b58c5a67c00f280, type: 2}
-  - {fileID: 11400000, guid: afc3313489269424aae9202e34814e28, type: 2}
   actionNames:
   - __actions_default_in_InteractUI
   - __actions_default_in_Teleport
@@ -37,8 +35,6 @@ MonoBehaviour:
   - __actions_buggy_in_Throttle
   - __actions_buggy_in_Brake
   - __actions_buggy_in_Reset
-  - __actions_myactions_in_Pick
-  - __actions_myactions_out_Haptic
   actionObjects:
   - {fileID: 11400000, guid: 727d65214d1ea9f498ff26d8d6a744e1, type: 2}
   - {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
@@ -55,5 +51,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 950ccb4a2cb9d30428ed07f39971f865, type: 2}
   - {fileID: 11400000, guid: 46fd060e1b884e04cada22a9719b23b5, type: 2}
   - {fileID: 11400000, guid: 0be4f6ab1be3d6c4290c7507dc0ccbb4, type: 2}
-  - {fileID: 11400000, guid: 4722165dc8d0ac343ba83846400f140e, type: 2}
-  - {fileID: 11400000, guid: 0f6f8ccb7b451f441ac06a64cf650b84, type: 2}

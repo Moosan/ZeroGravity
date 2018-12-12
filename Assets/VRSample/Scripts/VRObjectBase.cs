@@ -28,7 +28,10 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private bool Respawn = false;
     private SteamVR_Input_Sources HandType;
-    public SteamVR_Action_Boolean actionBoolean;
+    [SteamVR_DefaultAction("Teleport","default")]
+    public SteamVR_Action_Boolean actionBoolean1;
+    [SteamVR_DefaultAction("Teleport", "default")]
+    public SteamVR_Action_Boolean actionBoolean2;
 
     //掴んだら起こるイベント
     [SerializeField]
@@ -59,7 +62,7 @@ public abstract class VRObjectBase : MonoBehaviour
 
     public Rigidbody rigidBody { get; set; }
 
-    //private Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers);
+    protected Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers);
 
 
     public Hand Hand
@@ -173,13 +176,13 @@ public abstract class VRObjectBase : MonoBehaviour
     public virtual void HandHoverUpdate(Hand hand)
     {
         if (VRObjectMode == VRObjectMode.Attachable)
-        {/*
-            if (hand.GetStandardInteractionButtonDown() || ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip)))
+        {
+            if (actionBoolean1.GetState(_handType)/*|| ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))*/)
             {
                 if (hand.currentAttachedObject != gameObject)
                 {
                     hand.HoverLock(GetComponent<Interactable>());
-                    hand.AttachObject(gameObject, attachmentFlags);
+                    hand.AttachObject(gameObject,GrabTypes.Trigger, attachmentFlags);
                     rigidBody.useGravity = false;
                     rigidBody.isKinematic = true;
                 }
@@ -191,7 +194,7 @@ public abstract class VRObjectBase : MonoBehaviour
                     rigidBody.isKinematic = false;
                 }
             }
-            */
+            
         }
      
     }

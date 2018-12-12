@@ -1,9 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Valve.VR.InteractionSystem;
+using Valve.VR;
 
 public class ControllerDebugSample : VRObjectBase
 {
+    [SerializeField]
+    private SteamVR_Action_Boolean actionBool;
+    private void Update()
+    {
+        if (actionBool.GetState(_handType))
+        {
+            Debug.Log("Debug0");
+        }
+        if (actionBoolean1.GetState(_handType))
+        {
+            Debug.Log("Debug1");
+        }
+        if (actionBoolean2.GetState(_handType))
+        {
+            Debug.Log("Debug2");
+        }
+    }
     /*
     private bool IsAttached;
     void Update()
