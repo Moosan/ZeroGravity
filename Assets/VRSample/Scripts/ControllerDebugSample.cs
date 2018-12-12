@@ -13,13 +13,9 @@ public class ControllerDebugSample : VRObjectBase
         {
             Debug.Log("Debug0");
         }
-        if (actionBoolean1.GetState(_handType))
+        if (attachActionBool.GetState(_handType))
         {
             Debug.Log("Debug1");
-        }
-        if (actionBoolean2.GetState(_handType))
-        {
-            Debug.Log("Debug2");
         }
     }
     /*

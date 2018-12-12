@@ -15,10 +15,12 @@ MonoBehaviour:
   - _default
   - platformer
   - buggy
+  - VRObject
   actionSetObjects:
   - {fileID: 11400000, guid: e77c73bbeac9e6640b28d74dca0e4b23, type: 2}
   - {fileID: 11400000, guid: d51ef7b5a67b7b049bc4f9653aca7c9b, type: 2}
   - {fileID: 11400000, guid: 9b8c242231471cf46b58c5a67c00f280, type: 2}
+  - {fileID: 11400000, guid: a83e99ab92419df4db04a3fba1be6b71, type: 2}
   actionNames:
   - __actions_default_in_InteractUI
   - __actions_default_in_Teleport
@@ -35,6 +37,12 @@ MonoBehaviour:
   - __actions_buggy_in_Throttle
   - __actions_buggy_in_Brake
   - __actions_buggy_in_Reset
+  - __actions_VRObject_in_Pick
+  - __actions_VRObject_in_Attach
+  - __actions_VRObject_in_Touch
+  - __actions_VRObject_in_Direction
+  - __actions_VRObject_in_Grip
+  - __actions_VRObject_out_Haptic
   actionObjects:
   - {fileID: 11400000, guid: 727d65214d1ea9f498ff26d8d6a744e1, type: 2}
   - {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
@@ -51,3 +59,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 950ccb4a2cb9d30428ed07f39971f865, type: 2}
   - {fileID: 11400000, guid: 46fd060e1b884e04cada22a9719b23b5, type: 2}
   - {fileID: 11400000, guid: 0be4f6ab1be3d6c4290c7507dc0ccbb4, type: 2}
+  - {fileID: 11400000, guid: 0c526d9c6fb722a4c8ec172eb9d7b3fe, type: 2}
+  - {fileID: 11400000, guid: 1cfa50b9ab1ec3f438c9b6b56e6496ea, type: 2}
+  - {fileID: 11400000, guid: b7ed5142b6016e041b78e1e1d8476134, type: 2}
+  - {fileID: 11400000, guid: f79d30d23240b86418f98979a1cdc4c9, type: 2}
+  - {fileID: 11400000, guid: cce94ad6ad167954b98ba7b128ae0f6a, type: 2}
+  - {fileID: 11400000, guid: ac0e8d1028b66334f9d12746541e15f7, type: 2}

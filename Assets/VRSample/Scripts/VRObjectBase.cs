@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 using Valve.VR.InteractionSystem;
 using Valve.VR;
@@ -28,10 +26,7 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private bool Respawn = false;
     private SteamVR_Input_Sources HandType;
-    [SteamVR_DefaultAction("Teleport","default")]
-    public SteamVR_Action_Boolean actionBoolean1;
-    [SteamVR_DefaultAction("Teleport", "default")]
-    public SteamVR_Action_Boolean actionBoolean2;
+    public SteamVR_Action_Boolean attachActionBool;
 
     //掴んだら起こるイベント
     [SerializeField]
@@ -157,7 +152,6 @@ public abstract class VRObjectBase : MonoBehaviour
         {
             DestroyImmediate(rigidBody);
         }
-
         //GameObject system = GameObject.Find("System");
     }
 
@@ -169,7 +163,6 @@ public abstract class VRObjectBase : MonoBehaviour
             rigidBody.angularVelocity = new Vector3();
             transform.position = StartPosition;
             transform.rotation = StartRotation;
-
             Respawn = false;
         }
     }
@@ -178,7 +171,7 @@ public abstract class VRObjectBase : MonoBehaviour
     {
         if (VRObjectMode == VRObjectMode.Attachable)
         {
-            if (actionBoolean1.GetState(_handType)/*|| ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))*/)
+            if (attachActionBool.GetStateDown(_handType)/*|| ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))*/)
             {
                 if (hand.currentAttachedObject != gameObject)
                 {
@@ -195,9 +188,7 @@ public abstract class VRObjectBase : MonoBehaviour
                     rigidBody.isKinematic = false;
                 }
             }
-            
         }
-     
     }
 
     public VRObjectMode GetVRObjectMode()
@@ -211,7 +202,7 @@ public abstract class VRObjectBase : MonoBehaviour
 
         if (VRObjectMode != VRObjectMode.NeverMove)
         {
-            transform.tag = "VRItem";
+            transform.tag = "VRObect";
 
             if (rigidBody == null)
             {
