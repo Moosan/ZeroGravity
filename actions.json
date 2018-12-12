@@ -112,7 +112,10 @@
       "/actions/buggybuddy/in/Brake": "Brake",
       "/actions/buggybuddy/in/Reset": "Reset",
       "/actions/platformer/in/Move": "Move",
-      "/actions/platformer/in/Jump": "Jump"
+      "/actions/platformer/in/Jump": "Jump",
+      "/actions/NewSet/in/Pick": "Pick",
+      "/actions/NewSet/in/TouchDown": "TouchDown",
+      "/actions/NewSet/in/TouchPos": "TouchPos"
     }
   ]
 }
