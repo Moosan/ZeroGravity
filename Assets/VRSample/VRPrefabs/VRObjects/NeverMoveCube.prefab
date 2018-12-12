@@ -110,7 +110,7 @@ MonoBehaviour:
   VRObjectMode: 3
   UseGravity: 0
   Mass: 0
-  ObjectTag: VRItem
+  ObjectTag: VRObject
   Respawn: 0
   actionBoolean1: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
   actionBoolean2: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}

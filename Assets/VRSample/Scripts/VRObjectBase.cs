@@ -23,7 +23,7 @@ public abstract class VRObjectBase : MonoBehaviour
 
 
     [SerializeField]
-    private string ObjectTag = "VRItem";
+    private string ObjectTag = "VRObject";
 
     [SerializeField]
     private bool Respawn = false;
@@ -85,6 +85,7 @@ public abstract class VRObjectBase : MonoBehaviour
     {
         get
         {
+            if (Hand == null) return SteamVR_Input_Sources.Any ;
             return Hand.handType;
         }
     }
@@ -107,7 +108,7 @@ public abstract class VRObjectBase : MonoBehaviour
 
         if (VRObjectMode != VRObjectMode.NeverMove)
         {
-            if (ObjectTag == "") { transform.tag = "VRItem"; }
+            if (ObjectTag == "") { transform.tag = "VRObject"; }
             else { transform.tag = ObjectTag; }
 
             if (rigidBody == null)
