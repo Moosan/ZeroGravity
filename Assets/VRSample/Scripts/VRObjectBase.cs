@@ -23,8 +23,7 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private string ObjectTag = "VRObject";
     
-    private SteamVR_Input_Sources HandType;
-    private SteamVR_Action_Boolean attachActionBool = SteamVR_Input.__actions_default_in_GrabGrip;
+    public SteamVR_Action_Boolean attachActionBool;
 
     //掴んだら起こるイベント
     [SerializeField]
@@ -119,7 +118,7 @@ public abstract class VRObjectBase : MonoBehaviour
         //GameObject system = GameObject.Find("System");
     }
 
-        public virtual void HandHoverUpdate(Hand hand)
+    public virtual void HandHoverUpdate(Hand hand)
     {
         if (VRObjectMode == VRObjectMode.Attachable)
         {
