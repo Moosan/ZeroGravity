@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731703, g: 0.13414727, b: 0.12107852, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -1057,73 +1057,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114623395800612782, guid: a595a3cf058052242a455d423a089bd8,
+        type: 2}
+      propertyPath: attachActionBool
+      value: 
+      objectReference: {fileID: 11400000, guid: a17e7d82dbc164d478ebc916c9f2974e,
+        type: 2}
+    - target: {fileID: 114623395800612782, guid: a595a3cf058052242a455d423a089bd8,
+        type: 2}
+      propertyPath: actionBool
+      value: 
+      objectReference: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114000013765718102, guid: a595a3cf058052242a455d423a089bd8, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a595a3cf058052242a455d423a089bd8, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1311403344 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1000010072850406, guid: a595a3cf058052242a455d423a089bd8,
-    type: 2}
-  m_PrefabInternal: {fileID: 1311403343}
---- !u!114 &1311403345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1311403344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0694a7c456e691945a418ec812fa69af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VRObjectMode: 0
-  UseGravity: 0
-  Mass: 0
-  ObjectTag: VRObject
-  Respawn: 0
-  HandType: 0
-  attachActionBool: {fileID: 0}
-  onPickUp:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  onThrowAway:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  onHandHoverBegin:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  onHandHoverEnd:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  onAttachedToHand:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  onDetachedFromHand:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-    m_CallsDirty: 1
-  StartPosition: {x: 0, y: 0, z: 0}
-  StartRotation: {x: 0, y: 0, z: 0, w: 0}
-  <rigidBody>k__BackingField: {fileID: 0}
-  attachmentFlags: 44
 --- !u!1 &1311910584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1549,6 +1498,12 @@ Prefab:
       propertyPath: actionBoolean
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012428763812, guid: 00592bbaa1be33f4096deb55d48fd10c,
+        type: 2}
+      propertyPath: attachActionBool
+      value: 
+      objectReference: {fileID: 11400000, guid: 32172ee77410b1a488fc0b3817781ddd,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00592bbaa1be33f4096deb55d48fd10c, type: 2}
   m_IsPrefabParent: 0
