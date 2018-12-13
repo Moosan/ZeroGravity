@@ -5,85 +5,22 @@ using Valve.VR;
 
 public class ControllerDebugSample : VRObjectBase
 {
-    [SerializeField]
+    [SerializeField]//なんのボタンを受け取るかをインスペクターで決めれる
     private SteamVR_Action_Boolean actionBool;
-    private void Update()
+    public override void HandHoverUpdate(Hand hand)
     {
-        if (actionBool.GetState(_handType))
-        {
-            Debug.Log("Debug0");
+        base.HandHoverUpdate(hand);
+        var _handtype = hand.handType;
+        if (actionBool.GetStateDown(_handtype)) {
+            Debug.Log(_handtype.ToString() + "の手でぼたんが押された");
         }
-        if (attachActionBool.GetState(_handType))
+        if (actionBool.GetState(_handtype))
         {
-            Debug.Log("Debug1");
+            Debug.Log(_handtype.ToString() + "の手でぼたんが押されている");
+        }
+        if (actionBool.GetStateUp(_handtype))
+        {
+            Debug.Log(_handtype.ToString() + "の手でぼたんが押し終わった");
         }
     }
-    /*
-    private bool IsAttached;
-    void Update()
-    {
-        if (device != null)
-        {
-            if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Trigger))
-            {
-                Debug.Log("トリガーを浅く引いた");
-            }
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Trigger))
-            {
-                Debug.Log("トリガーを深く引いた");
-            }
-            if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Trigger))
-            {
-                Debug.Log("トリガーを離した");
-            }
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドをクリックした");
-            }
-            if (device.GetPress(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドをクリックしている");
-            }
-            if (device.GetPressUp(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドをクリックして離した");
-            }
-            if (device.GetTouchDown(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドに触った");
-            }
-            if (device.GetTouchUp(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドを離した");
-            }
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.ApplicationMenu))
-            {
-                Debug.Log("メニューボタンをクリックした");
-            }
-            if (device.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-            {
-                Debug.Log("グリップボタンをクリックした");
-            }
-
-            if (device.GetTouch(SteamVR_Controller.ButtonMask.Trigger))
-            {
-                Debug.Log("トリガーを浅く引いている");
-                float value = device.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger).x;
-                Debug.Log("トリガーが" + value * 100 + "%押されている");
-            }
-            if (device.GetPress(SteamVR_Controller.ButtonMask.Trigger))
-            {
-                Debug.Log("トリガーを深く引いている");
-                float value = device.GetAxis(Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger).x;
-                Debug.Log("トリガーが" + value * 100 + "%押されている");
-            }
-            if (device.GetTouch(SteamVR_Controller.ButtonMask.Touchpad))
-            {
-                Debug.Log("タッチパッドに触っている");
-                Vector2 position = device.GetAxis();
-                Debug.Log("x: " + position.x + " y: " + position.y+"らへんを触っている");
-            }
-        }
-    }
-    */
 }

@@ -62,30 +62,6 @@
     {
       "name": "/actions/buggy/in/Reset",
       "type": "boolean"
-    },
-    {
-      "name": "/actions/VRObject/in/Pick",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/VRObject/in/Attach",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/VRObject/in/Touch",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/VRObject/in/Direction",
-      "type": "vector2"
-    },
-    {
-      "name": "/actions/VRObject/in/Grip",
-      "type": "boolean"
-    },
-    {
-      "name": "/actions/VRObject/out/Haptic",
-      "type": "vibration"
     }
   ],
   "action_sets": [
@@ -99,10 +75,6 @@
     },
     {
       "name": "/actions/buggy",
-      "usage": "single"
-    },
-    {
-      "name": "/actions/VRObject",
       "usage": "single"
     }
   ],

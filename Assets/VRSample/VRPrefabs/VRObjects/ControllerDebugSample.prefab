@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33000012282169694}
   - component: {fileID: 136000011891259562}
   - component: {fileID: 23000010144796286}
-  - component: {fileID: 114000013765718102}
+  - component: {fileID: 114623395800612782}
   m_Layer: 0
   m_Name: ControllerDebugSample
   m_TagString: Untagged
@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000010072850406}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &114000013765718102
+--- !u!114 &114623395800612782
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -95,13 +95,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0694a7c456e691945a418ec812fa69af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  VRObjectMode: 1
-  UseGravity: 0
+  VRObjectMode: 0
+  UseGravity: 1
   Mass: 0
   ObjectTag: VRObject
-  Respawn: 0
-  actionBoolean1: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
-  actionBoolean2: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
@@ -132,7 +129,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  actionBool: {fileID: 0}
+  actionBool: {fileID: 11400000, guid: a17e7d82dbc164d478ebc916c9f2974e, type: 2}
 --- !u!136 &136000011891259562
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -22,11 +22,9 @@ public abstract class VRObjectBase : MonoBehaviour
 
     [SerializeField]
     private string ObjectTag = "VRObject";
-
-    [SerializeField]
-    private bool Respawn = false;
+    
     private SteamVR_Input_Sources HandType;
-    public SteamVR_Action_Boolean attachActionBool;
+    private SteamVR_Action_Boolean attachActionBool = SteamVR_Input.__actions_default_in_GrabGrip;
 
     //掴んだら起こるイベント
     [SerializeField]
@@ -51,46 +49,12 @@ public abstract class VRObjectBase : MonoBehaviour
     //ディタッチしたら呼ばれるイベント
     [SerializeField]
     private UnityEvent onDetachedFromHand;
-
-    private Vector3 StartPosition;
-    private Quaternion StartRotation;
-
     public Rigidbody rigidBody { get; set; }
 
     protected Hand.AttachmentFlags attachmentFlags = Hand.defaultAttachmentFlags & (~Hand.AttachmentFlags.SnapOnAttach) & (~Hand.AttachmentFlags.DetachOthers);
 
-
-    public Hand Hand
-    {
-        get
-        {
-            var hand = transform.parent.gameObject.GetComponent<Hand>();
-            if (hand == null)
-            {
-                return null;
-            }
-            else
-            {
-                return hand;
-            }
-        }
-    }
-    
-    public SteamVR_Input_Sources _handType
-    {
-        get
-        {
-            if (Hand == null) return SteamVR_Input_Sources.Any ;
-            return Hand.handType;
-        }
-    }
-
     public virtual void Awake()
     {
-        
-        StartPosition = transform.position;
-        StartRotation = transform.rotation;
-
         var collider = GetComponent<Collider>();
         if (collider == null)
         {
@@ -155,23 +119,11 @@ public abstract class VRObjectBase : MonoBehaviour
         //GameObject system = GameObject.Find("System");
     }
 
-    public virtual void LateUpdate()
-    {
-        if (Respawn)
-        {
-            rigidBody.velocity = new Vector3();
-            rigidBody.angularVelocity = new Vector3();
-            transform.position = StartPosition;
-            transform.rotation = StartRotation;
-            Respawn = false;
-        }
-    }
-
-    public virtual void HandHoverUpdate(Hand hand)
+        public virtual void HandHoverUpdate(Hand hand)
     {
         if (VRObjectMode == VRObjectMode.Attachable)
         {
-            if (attachActionBool.GetStateDown(_handType)/*|| ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))*/)
+            if (attachActionBool.GetStateDown(hand.handType)/*|| ((hand.controller != null) && hand.controller.GetPressDown(Valve.VR.EVRButtonId.k_EButton_Grip))*/)
             {
                 if (hand.currentAttachedObject != gameObject)
                 {
@@ -257,9 +209,9 @@ public abstract class VRObjectBase : MonoBehaviour
     {
         if (transform.parent != null)
         {
-            if (Hand != null)
+            if (transform.parent.GetComponent<Hand>() != null)
             {
-                Hand.DetachObject(gameObject);
+                transform.parent.GetComponent<Hand>().DetachObject(gameObject);
             }
         }
     }

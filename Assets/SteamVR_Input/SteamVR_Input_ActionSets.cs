@@ -23,14 +23,11 @@ namespace Valve.VR
         
         public static Valve.VR.SteamVR_Input_ActionSet_buggy buggy;
         
-        public static Valve.VR.SteamVR_Input_ActionSet_VRObject VRObject;
-        
         public static void Dynamic_InitializeActionSets()
         {
             SteamVR_Input._default.Initialize();
             SteamVR_Input.platformer.Initialize();
             SteamVR_Input.buggy.Initialize();
-            SteamVR_Input.VRObject.Initialize();
         }
         
         public static void Dynamic_InitializeInstanceActionSets()
@@ -38,13 +35,11 @@ namespace Valve.VR
             Valve.VR.SteamVR_Input._default = ((SteamVR_Input_ActionSet_default)(SteamVR_Input_References.GetActionSet("_default")));
             Valve.VR.SteamVR_Input.platformer = ((SteamVR_Input_ActionSet_platformer)(SteamVR_Input_References.GetActionSet("platformer")));
             Valve.VR.SteamVR_Input.buggy = ((SteamVR_Input_ActionSet_buggy)(SteamVR_Input_References.GetActionSet("buggy")));
-            Valve.VR.SteamVR_Input.VRObject = ((SteamVR_Input_ActionSet_VRObject)(SteamVR_Input_References.GetActionSet("VRObject")));
             Valve.VR.SteamVR_Input.actionSets = new Valve.VR.SteamVR_ActionSet[]
             {
                     Valve.VR.SteamVR_Input._default,
                     Valve.VR.SteamVR_Input.platformer,
-                    Valve.VR.SteamVR_Input.buggy,
-                    Valve.VR.SteamVR_Input.VRObject};
+                    Valve.VR.SteamVR_Input.buggy};
         }
     }
 }

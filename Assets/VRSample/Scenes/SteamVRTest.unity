@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731703, g: 0.13414727, b: 0.12107852, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -565,11 +565,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7a135b1a2cb9c8f488d4dd00c55ab283, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &654004909 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e,
-    type: 2}
-  m_PrefabInternal: {fileID: 823483989}
 --- !u!4 &683718027 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4000013386335588, guid: a595a3cf058052242a455d423a089bd8,
@@ -622,48 +617,6 @@ Prefab:
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 339260f7f8dc95d4188272c7586c21dc, type: 2}
-  m_IsPrefabParent: 0
---- !u!1001 &823483989
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2099778655}
-    m_Modifications:
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.203
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0.29999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4000010303521918, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cc25b2281f4762649b8e12acbef17b2e, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &888882722
 Prefab:
@@ -1129,39 +1082,48 @@ MonoBehaviour:
   Mass: 0
   ObjectTag: VRObject
   Respawn: 0
-  actionBoolean1: {fileID: 11400000, guid: a17e7d82dbc164d478ebc916c9f2974e, type: 2}
-  actionBoolean2: {fileID: 11400000, guid: 01efb0328eafeee44a8b8c6e7258a93e, type: 2}
+  HandType: 0
+  attachActionBool: {fileID: 0}
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   onThrowAway:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   onHandHoverBegin:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   onHandHoverEnd:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   onAttachedToHand:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+    m_CallsDirty: 1
   onDetachedFromHand:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  actionBool: {fileID: 11400000, guid: 727d65214d1ea9f498ff26d8d6a744e1, type: 2}
+    m_CallsDirty: 1
+  StartPosition: {x: 0, y: 0, z: 0}
+  StartRotation: {x: 0, y: 0, z: 0, w: 0}
+  <rigidBody>k__BackingField: {fileID: 0}
+  attachmentFlags: 44
 --- !u!1 &1311910584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1684,7 +1646,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 1, z: -1.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 654004909}
   - {fileID: 683718027}
   m_Father: {fileID: 0}
   m_RootOrder: 5
