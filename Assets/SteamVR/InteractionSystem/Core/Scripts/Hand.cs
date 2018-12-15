@@ -699,7 +699,7 @@ namespace Valve.VR.InteractionSystem
             }
             catch
             {
-                Debug.Log("HandがついてるオブジェクトにSteamVR_Behaviour_Poseがついていません");
+                Debug.LogWarning("HandがついてるオブジェクトにSteamVR_Behaviour_Poseがついていません");
             }
         }
 
