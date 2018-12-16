@@ -8,5 +8,6 @@ public class GravityLinearDrive : LinearDrive {
     {
         base.HandHoverUpdate(hand);
         slider.value = linearMapping.value;
+        Physics.gravity = new Vector3(0, slider.value * 2.0f * -9.81f, 0); 
     }
 }
