@@ -8,5 +8,6 @@ public class GravityLinearDrive : LinearDrive {
     {
         base.HandHoverUpdate(hand);
         slider.value = linearMapping.value;
+        Debug.Log("s");
     }
 }

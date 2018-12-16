@@ -23,7 +23,7 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private string ObjectTag = "VRObject";
     
-    public SteamVR_Action_Boolean attachActionBool;
+    private SteamVR_Action_Boolean attachActionBool= SteamVR_Input.__actions_default_in_GrabPinch;
 
     //掴んだら起こるイベント
     [SerializeField]
