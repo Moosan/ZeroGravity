@@ -15,6 +15,11 @@ public class GravityLinearDrive : LinearDrive {
         base.HandHoverUpdate(hand);
         ChangeGravity(linearMapping.value * valueMax);
     }
+    protected override void HandAttachedUpdate(Hand hand)
+    {
+        base.HandAttachedUpdate(hand);
+        ChangeGravity(linearMapping.value * valueMax);
+    }
     public void ChangeValue(float value)
     {
         linearMapping.value = value / valueMax;
