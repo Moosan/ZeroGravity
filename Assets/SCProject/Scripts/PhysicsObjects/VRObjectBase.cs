@@ -19,6 +19,7 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private float Mass;
 
+    public ReleaseStyle ReleaseStyle;
 
     [SerializeField]
     private string ObjectTag = "VRObject";
@@ -92,6 +93,7 @@ public abstract class VRObjectBase : MonoBehaviour
                 Throwable thro = gameObject.AddComponent<Throwable>();
                 thro.onPickUp = onPickUp;
                 thro.onDetachFromHand = onThrowAway;
+                thro.releaseVelocityStyle = ReleaseStyle;
 
                 //Attachイベント消去
                 onAttachedToHand = new UnityEvent();
