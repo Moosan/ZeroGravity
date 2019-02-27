@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 23000010956365266}
   - component: {fileID: 114000012428763812}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: PhysicsSphere
   m_TagString: VRObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   UseGravity: 1
   Mass: 1
   ObjectTag: VRObject
-  attachActionBool: {fileID: 0}
   onPickUp:
     m_PersistentCalls:
       m_Calls: []
