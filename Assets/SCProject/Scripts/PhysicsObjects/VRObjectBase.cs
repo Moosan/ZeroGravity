@@ -30,7 +30,7 @@ public abstract class VRObjectBase : MonoBehaviour
     [SerializeField]
     private UnityEvent onPickUp;
 
-    //話したら起こるイベント
+    //離したら起こるイベント
     [SerializeField]
     private UnityEvent onThrowAway;
 
@@ -117,7 +117,6 @@ public abstract class VRObjectBase : MonoBehaviour
         {
             DestroyImmediate(rigidBody);
         }
-        //GameObject system = GameObject.Find("System");
     }
 
     public virtual void HandHoverUpdate(Hand hand)
