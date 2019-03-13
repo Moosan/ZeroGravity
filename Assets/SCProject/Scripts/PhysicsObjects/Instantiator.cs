@@ -6,37 +6,26 @@ public class Instantiator : MonoBehaviour {
     private Vector3 StartPos;
     [SerializeField]
     private GameObject Prefab;
-    [SerializeField]
-    private float LifeTime;
-    private float TimeCount;
-    private void Awake()
+    private Rigidbody rigid;
+
+    private void Start()
     {
-        StartPos = transform.position;
-        TimeCount = 0;
+        StartPos = Prefab.transform.position;
+        rigid = Prefab.GetComponent<Rigidbody>();
     }
 
     public void Instant()
     {
-        var obj = (GameObject)Instantiate(Prefab, StartPos, new Quaternion());
-        obj.transform.parent = this.transform;
-
+        rigid.velocity = new Vector3();
+        rigid.transform.SetPositionAndRotation(
+            StartPos,
+            new Quaternion()
+            );
     }
 
     private void Update()
     {
-        TimeCount += Time.deltaTime;
-        if(TimeCount >= LifeTime)
-        {
-            TimeCount = 0;
-            if (!ExistChild())
-            {
-                Instant();
-            }
-        }
+
     }
 
-    private bool ExistChild()
-    {
-        return transform.childCount >= 1;
-    }
 }
