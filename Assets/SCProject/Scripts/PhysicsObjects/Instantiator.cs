@@ -8,7 +8,7 @@ public class Instantiator : MonoBehaviour {
     private GameObject Prefab;
     private Rigidbody rigid;
 
-    private void Start()
+    void Start()
     {
         StartPos = Prefab.transform.position;
         rigid = Prefab.GetComponent<Rigidbody>();
@@ -23,7 +23,7 @@ public class Instantiator : MonoBehaviour {
             );
     }
 
-    private void Update()
+    void Update()
     {
 
     }

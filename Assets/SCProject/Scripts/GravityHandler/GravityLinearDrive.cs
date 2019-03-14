@@ -5,6 +5,10 @@ public class GravityLinearDrive : LinearDrive {
     [SerializeField]
     private Slider slider;
     private float valueMax;
+
+    public delegate void GravityValueHandler(float value);
+    public event GravityValueHandler OnGravityValueChange = (value) => { };
+
     protected override void Awake()
     {
         base.Awake();
@@ -29,6 +33,8 @@ public class GravityLinearDrive : LinearDrive {
     private void ChangeGravity(float value)
     {
         slider.value = value;
-        Physics.gravity = new Vector3(0, value * 2.0f * -9.81f, 0);
+        var gravityValue = value * 2.0f * -9.81f;
+        Physics.gravity = new Vector3(0, gravityValue, 0);
+        OnGravityValueChange(gravityValue);
     }
 }
