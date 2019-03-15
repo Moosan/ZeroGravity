@@ -2,31 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThrowDataObject : VRObjectBase {
+[RequireComponent(typeof(VRObjectBase))]
+public class ThrowDataObject :MonoBehaviour{
     public GameObject ThrowDataUI;
     private float mass;
     private float height;
     private float velocity;
-    private Rigidbody rigidbody;
+    private Rigidbody Rigidbody;
     private GameObject throwdata;
     private Vector3 ThrowPos;
 
+    [SerializeField]
+    private bool IsThrow;
+
 	// Use this for initialization
-	void Start () {
-        rigidbody = this.GetComponent<Rigidbody>();
-        //OnThrow();
-    }
-	
-	// Update is called once per frame
-	void Update () {
+	void Awake () {
+        Rigidbody = this.GetComponent<Rigidbody>();
         
     }
+    private void Start()
+    {
+        if (IsThrow)
+        {
+            OnThrow();
+        }
+    }
+
     public void OnThrow(){
         ThrowPos = this.transform.position;
-        throwdata = Instantiate(ThrowDataUI, ThrowPos,new Quaternion());
+        throwdata = Instantiate(ThrowDataUI, ThrowPos,Quaternion.identity);
         height = this.transform.position.y;
-        mass = this.rigidbody.mass;
-        velocity = rigidbody.velocity.magnitude;
+        mass = this.Rigidbody.mass;
+        velocity = Rigidbody.velocity.magnitude;
         throwdata.GetComponent<ThrowDataUI>().SetParameter(mass, height, velocity);
+        throwdata.SetActive(true);
+        IsThrow = false;
     }
 }
