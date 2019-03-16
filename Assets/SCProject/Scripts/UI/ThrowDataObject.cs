@@ -10,24 +10,42 @@ public class ThrowDataObject : VRObjectBase {
     private Rigidbody rigidbody;
     private GameObject throwdata;
     private Vector3 ThrowPos;
+    private float seconds;
 
 	// Use this for initialization
 	void Start () {
         rigidbody = this.GetComponent<Rigidbody>();
-        StartCoroutine("OnThrow");
+        StartCoroutine("loop");
+
     }
 	
 	// Update is called once per frame
 	void Update () {
-        
+        seconds += Time.deltaTime;
     }
-    public IEnumerator OnThrow(){
+    public IEnumerator loop()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.5f);
+            OnThrow();
+        }
+    }
+    public void OnThrow(){
         ThrowPos = this.transform.position;
         throwdata = Instantiate(ThrowDataUI, ThrowPos,new Quaternion());
         height = this.transform.position.y;
         mass = this.rigidbody.mass;
         velocity = rigidbody.velocity.magnitude;
         throwdata.GetComponent<ThrowDataUI>().SetParameter(mass, height, velocity);
-        yield return new WaitForSeconds(0.0f);
+        
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Plane")
+        {
+            Debug.Log("Hit");
+            StopCoroutine("loop");
+        }
     }
 }
