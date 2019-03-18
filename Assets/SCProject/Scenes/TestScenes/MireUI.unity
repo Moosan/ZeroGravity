@@ -191,6 +191,8 @@ MonoBehaviour:
       Culture=neutral, PublicKeyToken=null
   ThrowDataUI: {fileID: 1214158179040178, guid: cd279f991c2848f48b9f77c5b91d9198,
     type: 2}
+  TransparentSphere: {fileID: 1521736183099734, guid: 7db8e36ab022de4428156c5b0f5efa90,
+    type: 2}
 --- !u!23 &866133902
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -251,7 +253,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 866133899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.987, y: 3, z: 1.55}
+  m_LocalPosition: {x: -0.987, y: 10, z: 1.55}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
