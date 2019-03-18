@@ -17,15 +17,10 @@ public class Instantiator : MonoBehaviour {
     public void Instant()
     {
         rigid.velocity = new Vector3();
-        rigid.transform.SetPositionAndRotation(
+        Prefab.transform.SetPositionAndRotation(
             StartPos,
             new Quaternion()
             );
-    }
-
-    void Update()
-    {
-
     }
 
 }

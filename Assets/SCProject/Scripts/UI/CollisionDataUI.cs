@@ -6,7 +6,7 @@ public class CollisionDataUI : MonoBehaviour {
     public Text TimeText;
     public Text DistanceText;
     private LineRenderer Line;
-    private void Awake()
+    private void Start()
     {
         Line = GetComponent<LineRenderer>();
         Line.SetPositions(new Vector3[] { StartTransform.position, EndTransform.position });
