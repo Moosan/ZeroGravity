@@ -126,7 +126,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4477157280006780, guid: 8923e023257c98949894f8eeeb626dc5, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.01
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 4477157280006780, guid: 8923e023257c98949894f8eeeb626dc5, type: 2}
       propertyPath: m_LocalPosition.z
@@ -79579,6 +79579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThrowDataUI: {fileID: 1214158179040178, guid: cd279f991c2848f48b9f77c5b91d9198,
     type: 2}
+  DelayTime: 0.2
   IsThrow: 0
 --- !u!114 &1480567233
 MonoBehaviour:
