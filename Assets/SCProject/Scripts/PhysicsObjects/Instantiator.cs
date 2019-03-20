@@ -8,6 +8,8 @@ public class Instantiator : MonoBehaviour {
     private GameObject Prefab;
     private Rigidbody rigid;
 
+    private CollisonDataObject data1;
+    private ThrowDataObject data2;
     void Start()
     {
         StartPos = Prefab.transform.position;
@@ -21,6 +23,8 @@ public class Instantiator : MonoBehaviour {
             StartPos,
             new Quaternion()
             );
+        data1.OfThrow();
+        data2.OfThrow();
     }
 
 }

@@ -13,6 +13,11 @@ public class CollisonDataObject : MonoBehaviour
     private GameObject UIObj;
     [SerializeField]
     private bool isThrow;
+    [SerializeField]
+    private GameObject Parent;
+
+    public static bool isActive = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -39,11 +44,17 @@ public class CollisonDataObject : MonoBehaviour
         }
     }
     public void OnThrow(){
+        if (!isActive) return;
         startPosi = this.transform.position;
         TotalTime = Time.time;
     }
+    public void OfThrow()
+    {
+        isThrow = false;
+    }
     private IEnumerator Seisei(){
         UIObj = Instantiate(CollisionDataUI, transform.position, Quaternion.identity);
+        UIObj.transform.parent = Parent.transform;
         UIObj.SetActive(false);
         yield return null;
     }

@@ -16,7 +16,10 @@ public class ThrowDataObject :MonoBehaviour{
 
     [SerializeField]
     private bool IsThrow;
+    [SerializeField]
+    private GameObject Parent;
 
+    public static bool isActive = false;
     private void Start()
     {
         Rigidbody = this.GetComponent<Rigidbody>();
@@ -35,13 +38,20 @@ public class ThrowDataObject :MonoBehaviour{
     }
     public void OnThrow()
     {
+        if (!isActive) return;
         MakeUI();
+        StartCoroutine("loop");
+    }
+
+    public void OfThrow()
+    {
         StartCoroutine("loop");
     }
 
     private void MakeUI(){
         ThrowPos = this.transform.position;
         throwdata = Instantiate(ThrowDataUI, ThrowPos,Quaternion.identity);
+        throwdata.transform.parent = Parent.transform;
         height = this.transform.position.y;
         mass = this.Rigidbody.mass;
         velocity = Rigidbody.velocity.magnitude;
@@ -53,7 +63,7 @@ public class ThrowDataObject :MonoBehaviour{
     {
         if (collision.gameObject.name == "Floor")
         {
-            StopCoroutine("loop");
+            OfThrow();
         }
     }
 }
