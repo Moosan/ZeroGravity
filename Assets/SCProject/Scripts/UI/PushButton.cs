@@ -7,9 +7,6 @@ public class PushButton : MonoBehaviour {
     private void Start()
     {
         StartPosition = transform.localPosition.z;
-        var IHE = GetComponent<InteractableHoverEvents>();
-        IHE.onAttachedToHand.AddListener(OnPush);
-        IHE.onDetachedFromHand.AddListener(OnPull);
     }
 
     public void OnPush()

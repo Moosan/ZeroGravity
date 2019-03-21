@@ -11,12 +11,15 @@ public class CollisonDataObject : MonoBehaviour
     private float kyori;
     private Vector3 startPosi;
     private GameObject UIObj;
+    private GameObject UIObj2;
     [SerializeField]
     private bool isThrow;
     [SerializeField]
     private GameObject Parent;
 
     public static bool isActive = false;
+
+    public Transform player;
 
     void Awake()
     {
@@ -25,14 +28,17 @@ public class CollisonDataObject : MonoBehaviour
 
     private void Start()
     {
+        
         if (UIObj == null)
         {
             StartCoroutine(Seisei());
         }
+        
         if (isThrow)
         {
             OnThrow();
         }
+        
     }
     private void OnCollisionEnter(Collision other)
     {
@@ -45,14 +51,20 @@ public class CollisonDataObject : MonoBehaviour
     }
     public void OnThrow(){
         if (!isActive) return;
+        Destroy(UIObj2);
         startPosi = this.transform.position;
         TotalTime = Time.time;
+        isThrow = true;
     }
     public void OfThrow()
     {
         isThrow = false;
     }
     private IEnumerator Seisei(){
+        if(UIObj != null)
+        {
+            UIObj2 = UIObj;
+        }
         UIObj = Instantiate(CollisionDataUI, transform.position, Quaternion.identity);
         UIObj.transform.parent = Parent.transform;
         UIObj.SetActive(false);
@@ -66,6 +78,8 @@ public class CollisonDataObject : MonoBehaviour
         kyori = Mathf.Sqrt((endPosi.x - startPosi.x) * (endPosi.x - startPosi.x) + (endPosi.z - startPosi.z) * (endPosi.z - startPosi.z));
         UIObj.GetComponent<CollisionDataUI>().SetParameter(time, kyori);
         UIObj.transform.position = pos;
+        pos.y = transform.position.y;
+        UIObj.transform.rotation = Quaternion.LookRotation(player.transform.position -pos);
         UIObj.SetActive(true);
         StartCoroutine(Seisei());
         TotalTime = 0f;

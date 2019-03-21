@@ -7,11 +7,13 @@ public class ParentSet : MonoBehaviour {
     public GameObject CollisionParent;
     private bool ThrowActive;
     private bool CollisionActive;
+    private List<GameObject> UIList;
 
     private void Awake()
     {
         ThrowActive = false;
         CollisionActive = false;
+        UIList = new List<GameObject>();
     }
     public void ThrowSet()
     {
@@ -26,4 +28,5 @@ public class ParentSet : MonoBehaviour {
         CollisionParent.SetActive(CollisionActive);
         CollisonDataObject.isActive = CollisionActive;
     }
+
 }

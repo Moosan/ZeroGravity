@@ -19,14 +19,23 @@ public class ThrowDataObject :MonoBehaviour{
     [SerializeField]
     private GameObject Parent;
 
+    private List<GameObject> ObjList;
+
     public static bool isActive = false;
+
+    public Transform player;
+
+    public float KyoriThre;
+
     private void Start()
     {
         Rigidbody = this.GetComponent<Rigidbody>();
+        ObjList = new List<GameObject>();
         if (IsThrow)
         {
             OnThrow();
         }
+        
     }
     public IEnumerator loop()
     {
@@ -39,25 +48,30 @@ public class ThrowDataObject :MonoBehaviour{
     public void OnThrow()
     {
         if (!isActive) return;
+        StartCoroutine("Delete", ObjList.ToArray());
+        ObjList.Clear();
         MakeUI();
         StartCoroutine("loop");
+        IsThrow = false;
     }
 
     public void OfThrow()
     {
-        StartCoroutine("loop");
+        StopCoroutine("loop");
     }
 
     private void MakeUI(){
+        if ((ThrowPos - transform.position).magnitude < KyoriThre) return;
         ThrowPos = this.transform.position;
         throwdata = Instantiate(ThrowDataUI, ThrowPos,Quaternion.identity);
+        ObjList.Add(throwdata);
+        throwdata.transform.LookAt(player);
         throwdata.transform.parent = Parent.transform;
         height = this.transform.position.y;
         mass = this.Rigidbody.mass;
         velocity = Rigidbody.velocity.magnitude;
         throwdata.GetComponent<ThrowDataUI>().SetParameter(mass, height, velocity);
         throwdata.SetActive(true);
-        IsThrow = false;
     }
     void OnCollisionEnter(Collision collision)
     {
@@ -65,5 +79,11 @@ public class ThrowDataObject :MonoBehaviour{
         {
             OfThrow();
         }
+    }
+    public IEnumerator Delete(GameObject[] array) {
+        foreach (var obj in array) {
+            Destroy(obj);
+        }
+        yield return null;
     }
 }
