@@ -78,8 +78,8 @@ public class CollisonDataObject : MonoBehaviour
         kyori = Mathf.Sqrt((endPosi.x - startPosi.x) * (endPosi.x - startPosi.x) + (endPosi.z - startPosi.z) * (endPosi.z - startPosi.z));
         UIObj.GetComponent<CollisionDataUI>().SetParameter(time, kyori);
         UIObj.transform.position = pos;
-        pos.y = transform.position.y;
-        UIObj.transform.rotation = Quaternion.LookRotation(player.transform.position -pos);
+        pos.y = 0;
+        UIObj.transform.rotation = Quaternion.LookRotation(new Vector3(player.transform.position.x,0,player.transform.position.z) - pos);
         UIObj.SetActive(true);
         StartCoroutine(Seisei());
         TotalTime = 0f;
