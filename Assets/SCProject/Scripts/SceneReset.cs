@@ -8,6 +8,13 @@ public class SceneReset : MonoBehaviour {
     {
         // 引数にシーン名を指定する
         // Build Settings で確認できる sceneBuildIndex を指定しても良い
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene(0);
+    }
+    private void LateUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            MoveScene();
+        }
     }
 }
